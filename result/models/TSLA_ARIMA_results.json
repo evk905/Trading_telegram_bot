@@ -1,0 +1,13 @@
+{
+  "ticker": "TSLA",
+  "model_name": "ARIMA",
+  "metrics": {
+    "rmse": 16.7327156533901,
+    "mae": 12.494577181541313,
+    "mape": 3.051231277369043,
+    "r2": 0.838424801869428
+  },
+  "val_size": 60,
+  "feature_count": 1,
+  "cv": null
+}
