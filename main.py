@@ -25,6 +25,15 @@ def main():
     df["Date"] = pd.to_datetime(df["Date"])
     df = df.sort_values("Date").reset_index(drop=True)
 
+    print('select model')
+    best_model, best_path = select_best_model(df, ticker)
+    print(best_model)
+    print(best_path)
+
+    print('forecast and recomend')
+    forecast(df, ticker, amount, best_model=best_model, best_path=best_path)
+    print('Stop')
+
 #    # Обучение RF
 #     metrics_rf, path_rf = train_random_forest_on_history(df, ticker)
 #     print(metrics_rf, path_rf)
@@ -69,18 +78,6 @@ def main():
 #     print(lstm_forecast_info["summary"])
 #     print("График сохранён в:", lstm_forecast_info["plot_path"])
 #     print("JSON с метаданными:",lstm_forecast_info["results_json_path"])
-
-
-    print('select model')
-    best_model, best_path = select_best_model(df, ticker)
-    print(best_model)
-    print(best_path)
-
-    print('forecast and recomend')
-    forecast(df, ticker, amount, best_model=best_model, best_path=best_path)
-    print('Stop')
-
-
 
 
 if __name__ == "__main__":

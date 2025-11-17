@@ -1,0 +1,13 @@
+{
+  "ticker": "AAPL",
+  "model_name": "RandomForest",
+  "metrics": {
+    "rmse": 12.55640267988743,
+    "mae": 9.927481709698744,
+    "mape": 3.7946882622485587,
+    "r2": 0.23996616296793483
+  },
+  "val_size": 60,
+  "feature_count": 34,
+  "cv": null
+}

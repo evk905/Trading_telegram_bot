@@ -1,0 +1,14 @@
+{
+  "ticker": "AAPL",
+  "model_name": "LSTM",
+  "metrics": {
+    "rmse": 6.384123232621038,
+    "mae": 4.588335513230209,
+    "mape": 1.7947396895295362,
+    "r2": 0.44624833550430154
+  },
+  "val_size": 60,
+  "feature_count": 1,
+  "window_size": 20,
+  "cv": null
+}

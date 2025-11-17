@@ -171,7 +171,7 @@ def rf_forecast_30_days(
         pct_change = (abs_change / last_adj) * 100 if last_adj != 0 else np.nan
         direction = "вырастут" if abs_change > 0 else ("упадут" if abs_change < 0 else "не изменятся")
         summary = (
-            f"Оценка на {forecast_dates[-1].date()}: акции {direction} на "
+            f"Оценка на {forecast_dates[-1].date()}: за 30 дней акции {direction} на "
             f"{abs(abs_change):.2f} ({abs(pct_change):.2f}%) относительно текущего дня."
         )
     else:
