@@ -1,0 +1,13 @@
+{
+  "ticker": "MSFT",
+  "model_name": "RandomForest",
+  "metrics": {
+    "rmse": 6.660936672984802,
+    "mae": 4.810558750052499,
+    "mape": 0.93299798456774,
+    "r2": 0.5210140107111794
+  },
+  "val_size": 60,
+  "feature_count": 34,
+  "cv": null
+}

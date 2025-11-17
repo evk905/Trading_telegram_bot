@@ -1,0 +1,14 @@
+{
+  "ticker": "MSFT",
+  "model_name": "LSTM",
+  "metrics": {
+    "rmse": 10.503179295667787,
+    "mae": 8.071155171061854,
+    "mape": 1.5562641457009956,
+    "r2": -0.23723945593599782
+  },
+  "val_size": 60,
+  "feature_count": 1,
+  "window_size": 20,
+  "cv": null
+}

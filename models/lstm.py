@@ -10,7 +10,7 @@ from tensorflow.keras.layers import LSTM, Dense
 from tensorflow.keras.callbacks import EarlyStopping
 
 from config import FORECAST_HORIZON, VAL_SIZE
-from metrics_plots import metrics, plot_and_save
+from service.metrics_plots import metrics, plot_and_save
 
 import matplotlib.pyplot as plt
 from datetime import timedelta
@@ -139,5 +139,7 @@ def train_lstm_on_history(
     }
     with open(Path(model_dir) / f"{ticker}_{model_name}_results.json", "w", encoding="utf-8") as f:
         json.dump(results_json, f, ensure_ascii=False, indent=2)
+    
+    
     return results_json["metrics"], str(model_path)
 

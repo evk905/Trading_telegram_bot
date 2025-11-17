@@ -6,7 +6,7 @@ import joblib
 import json
 
 from config import FORECAST_HORIZON, VAL_SIZE
-from metrics_plots import metrics, plot_and_save
+from service.metrics_plots import metrics, plot_and_save
 
 import matplotlib.pyplot as plt
 

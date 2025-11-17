@@ -1,14 +1,15 @@
 
 from pathlib import Path
 import pandas as pd
-from upload_data import prompt_user, load_prices, save_csv
+from service.upload_data import prompt_user, load_prices, save_csv
+from service.select_best_models import select_best_model, forecast
 from config import FORECAST_HORIZON, VAL_SIZE
-from models.rf import train_random_forest_on_history
-from models.rf_pred import rf_forecast_30_days
-from models.arima import  train_arima_on_history_log
-from models.lstm import train_lstm_on_history
-from models.arima_pred import forecast_30_days_arima_log 
-from models.lstm_pred import lstm_predict_future_30_days
+# from models.rf import train_random_forest_on_history
+# from models.rf_pred import rf_forecast_30_days
+# from models.arima import  train_arima_on_history_log
+# from models.lstm import train_lstm_on_history
+# from models.arima_pred import forecast_30_days_arima_log 
+# from models.lstm_pred import lstm_predict_future_30_days
 
 
 def main():
@@ -24,50 +25,63 @@ def main():
     df["Date"] = pd.to_datetime(df["Date"])
     df = df.sort_values("Date").reset_index(drop=True)
 
-   # Обучение RF
-    metrics_rf, path_rf = train_random_forest_on_history(df, ticker)
-    print(metrics_rf, path_rf)
+#    # Обучение RF
+#     metrics_rf, path_rf = train_random_forest_on_history(df, ticker)
+#     print(metrics_rf, path_rf)
 
-    # Обучение ARIMA
-    metrics_arima, path_arima = train_arima_on_history_log(df, ticker)
-    print(metrics_arima, path_arima) 
+#     # Обучение ARIMA
+#     metrics_arima, path_arima = train_arima_on_history_log(df, ticker)
+#     print(metrics_arima, path_arima) 
 
-    # Обучение LSTM
-    metrics_lstm, path_lstm = train_lstm_on_history(df, ticker)
-    print(metrics_lstm, path_lstm)
+#     # Обучение LSTM
+#     metrics_lstm, path_lstm = train_lstm_on_history(df, ticker)
+#     print(metrics_lstm, path_lstm)
 
 
-    # RF Прогноз на 30 дней, график и запись в JSON
-    rf_forecast_info = rf_forecast_30_days(
-        df,
-        ticker,
-        model_artifact_path=path_rf
-    )
-    print(rf_forecast_info["summary"])
-    print("График сохранен в:", rf_forecast_info["plot_path"])
+#     # RF Прогноз на 30 дней, график и запись в JSON
+#     rf_forecast_info = rf_forecast_30_days(
+#         df,
+#         ticker,
+#         model_artifact_path=path_rf
+#     )
+#     print(rf_forecast_info["summary"])
+#     print("График сохранен в:", rf_forecast_info["plot_path"])
     
  
-    # ARIMA Форвард-прогноз на 30 дней, график и запись в JSON
-    arima_forecast_info = forecast_30_days_arima_log (
-        df,
-        ticker,
-        model_artifact_path=path_arima
-    )
-    print(arima_forecast_info["summary"])
-    print("График сохранен в:", arima_forecast_info["plot_path"])
+#     # ARIMA Форвард-прогноз на 30 дней, график и запись в JSON
+#     arima_forecast_info = forecast_30_days_arima_log (
+#         df,
+#         ticker,
+#         model_artifact_path=path_arima
+#     )
+#     print(arima_forecast_info["summary"])
+#     print("График сохранен в:", arima_forecast_info["plot_path"])
     
 
 
-# Прогноз на 30 дней, построение графика и обновление results.json
-    forecast_info = lstm_predict_future_30_days(
-    df,
-    ticker,
-    model_artifact_path=path_lstm
-    )
+# # Прогноз на 30 дней, построение графика и обновление results.json
+#     lstm_forecast_info = lstm_predict_future_30_days(
+#     df,
+#     ticker,
+#     model_artifact_path=path_lstm
+#     )
 
-    print(forecast_info["message"])
-    print("График сохранён в:", forecast_info["plot_path"])
-    print("JSON с метаданными:", forecast_info["results_json_path"])
+#     print(lstm_forecast_info["summary"])
+#     print("График сохранён в:", lstm_forecast_info["plot_path"])
+#     print("JSON с метаданными:",lstm_forecast_info["results_json_path"])
+
+
+    print('select model')
+    best_model, best_path = select_best_model(df, ticker)
+    print(best_model)
+    print(best_path)
+
+    print('forecast and recomend')
+    forecast(df, ticker, amount, best_model=best_model, best_path=best_path)
+    print('Stop')
+
+
+
 
 if __name__ == "__main__":
     main()

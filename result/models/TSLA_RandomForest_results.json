@@ -1,0 +1,13 @@
+{
+  "ticker": "TSLA",
+  "model_name": "RandomForest",
+  "metrics": {
+    "rmse": 19.734389376485815,
+    "mae": 16.140071792061637,
+    "mape": 3.8005184983657174,
+    "r2": 0.7717069320213117
+  },
+  "val_size": 60,
+  "feature_count": 34,
+  "cv": null
+}

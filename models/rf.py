@@ -11,7 +11,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import TimeSeriesSplit
 
 from config import FORECAST_HORIZON, VAL_SIZE, model_name
-from metrics_plots import metrics
+from service.metrics_plots import metrics
 
 
 
