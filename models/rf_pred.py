@@ -11,7 +11,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import TimeSeriesSplit
 
-from config import FORECAST_HORIZON, VAL_SIZE, model_name
+from config import FORECAST_HORIZON, VAL_SIZE
 from metrics_plots import metrics, plot_and_save
 
 import matplotlib.pyplot as plt
