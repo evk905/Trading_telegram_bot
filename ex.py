@@ -50,7 +50,7 @@ def log_request(
         f.write(line)
 
 # Токен бота
-API_TOKEN = API_TOKEN
+API_TOKEN = TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
