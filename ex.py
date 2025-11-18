@@ -49,7 +49,7 @@ def log_request(
         f.write(line)
 
 # Токен бота
-API_TOKEN = '8547584856:AAEYbRCIGyGq--CMNoMIzxIilnFkc7h3Mf0'
+API_TOKEN = TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
