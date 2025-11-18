@@ -18,6 +18,7 @@ from service.select_best_models import select_best_model, forecast_bot
 from config import FORECAST_HORIZON, VAL_SIZE
 
 
+
 LOG_FILE = os.path.join("logs", "logs.txt")
 os.makedirs("logs", exist_ok=True)
 
@@ -49,7 +50,7 @@ def log_request(
         f.write(line)
 
 # Токен бота
-API_TOKEN = '8547584856:AAEYbRCIGyGq--CMNoMIzxIilnFkc7h3Mf0'
+API_TOKEN = API_TOKEN
 
 logging.basicConfig(level=logging.INFO)
 
